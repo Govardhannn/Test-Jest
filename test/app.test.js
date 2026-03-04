@@ -1,14 +1,21 @@
-import { test } from "node:test";
+import { describe, suite, test } from "node:test";
 import assert from "node:assert";
-import greet from "./app.js";
+import { greet, Olla } from "./app.js";
 
-test("greet return the correct greeting", () => {
-    // Arrange
-    const expected = "Hello, Govardhan!";
+describe("Greeting function", () => {
 
-    // Act
-    const actual = greet("Govardhan");
+    test("greet return the correct greeting", () => {
+        const expected = "Hello, Govardhan!";
+        const actual = greet("Govardhan");
 
-    // Assert
-    assert.strictEqual(actual, expected);
+        assert.strictEqual(actual, expected);
+    });
+
+    test("greet return the correct greeting in French", () => {
+        const expected = "Olla, Govardhan!";
+        const actual = Olla("Govardhan");
+
+        assert.strictEqual(actual, expected);
+    });
+
 });
